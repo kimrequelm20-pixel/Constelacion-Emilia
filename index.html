@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constelación Emilia</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    font-family: 'Trebuchet MS', sans-serif;
+    background: radial-gradient(circle at center, #1b2340 0%, #070b18 60%, #000000 100%);
+    color:white;
+}
+
+h1{
+    text-align:center;
+    margin-top:30px;
+    margin-bottom:10px;
+    font-size:2.3rem;
+}
+
+.subtitulo{
+    text-align:center;
+    max-width:700px;
+    margin:auto;
+    opacity:0.85;
+    padding:0 20px;
+}
+
+.estrellas{
+    position:relative;
+    width:100vw;
+    height:75vh;
+}
+
+.star{
+    position:absolute;
+    width:16px;
+    height:16px;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 0 12px white;
+    cursor:pointer;
+    animation:brillar 2s infinite alternate;
+}
+
+.star:hover{
+    transform:scale(1.4);
+}
+
+.emilia{
+    width:26px;
+    height:26px;
+    box-shadow:0 0 35px white;
+}
+
+@keyframes brillar{
+    from{
+        opacity:0.5;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+.linea{
+    position:absolute;
+    background:rgba(255,255,255,0.3);
+    height:2px;
+    transform-origin:left center;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.75);
+}
+
+.modal-content{
+    background:#111b35;
+    width:85%;
+    max-width:600px;
+    margin:10vh auto;
+    padding:25px;
+    border-radius:18px;
+    text-align:left;
+}
+
+.modal h2{
+    margin-top:0;
+}
+
+.cerrar{
+    margin-top:20px;
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>✨ Constelación Emilia ✨</h1>
+
+<p class="subtitulo">
+Encontré una constelación nueva.
+No aparece en ningún mapa.
+Si alguna vez mirás al cielo, quizá la encuentres.
+</p>
+
+<div class="estrellas">
+
+    <!-- Líneas -->
+
+    <div class="linea" style="top:60%; left:15%; width:13%; transform:rotate(-28deg);"></div>
+    <div class="linea" style="top:46%; left:25%; width:15%; transform:rotate(24deg);"></div>
+    <div class="linea" style="top:56%; left:38%; width:15%; transform:rotate(-25deg);"></div>
+    <div class="linea" style="top:41%; left:50%; width:15%; transform:rotate(25deg);"></div>
+    <div class="linea" style="top:51%; left:62%; width:15%; transform:rotate(-28deg);"></div>
+
+    <!-- Estrellas -->
+
+    <div class="star" style="left:15%; top:60%;" onclick="abrir(1)"></div>
+
+    <div class="star" style="left:25%; top:45%;" onclick="abrir(2)"></div>
+
+    <div class="star" style="left:38%; top:55%;" onclick="abrir(3)"></div>
+
+    <div class="star" style="left:50%; top:40%;" onclick="abrir(4)"></div>
+
+    <div class="star" style="left:62%; top:50%;" onclick="abrir(5)"></div>
+
+    <div class="star" style="left:75%; top:35%;" onclick="abrir(6)"></div>
+
+    <div class="star emilia" style="left:52%; top:18%;" onclick="abrir(7)"></div>
+
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+
+        <h2 id="titulo"></h2>
+
+        <p id="texto"></p>
+
+        <button class="cerrar" onclick="cerrar()">
+            Cerrar
+        </button>
+
+    </div>
+</div>
+
+<script>
+
+const estrellas = {
+
+1:{
+titulo:"⭐ Canción que me recuerda a ti",
+texto:`Daylight siempre me va a recordar a ti chicho, así te conocí y así lo siento. En esa canción te quedarás siempre. Y para mi buena suerte, me gusta muchísimo la canción.`
+},
+
+2:{
+titulo:"⭐ Un recuerdo lindo",
+texto:`Creo que no tengo un solo recuerdo lindo. Creo que más allá de eso, tengo muchos momentos en los que me acompañas y me has ayudado un montón.
+
+Es lindo cómo me acompañas en mi día a día y sentir que aunque estés lejos, te sienta cerquita.`
+},
+
+3:{
+titulo:"⭐ Algo que me gusta mucho de ti",
+texto:`Me gustan muchas cosas de ti, ups. Eres increíble chicho, genuinamente wow.
+
+Lo buena que eres en todos los aspectos de tu vida y sensible. Lo haces muy bien chicho, qué lindo.
+
+Y lo graciosa!! Me río mucho contigo, basta jsjsjsjs.`
+},
+
+4:{
+titulo:"⭐ Algo que aprendí de ti",
+texto:`He aprendido a disfrutar las cosas y no pensar tanto, por obvias razones jaja.
+
+Y siento que me hace disfrutar momentos de mi vida ahora y no estar tan ansiosa, gracias.`
+},
+
+5:{
+titulo:"⭐ Algo que no me gusta de ti",
+texto:`No me gusta que estés tan lejos, haz tp!
+
+Y no me gusta que no puedas ver lo linda que eres, podría derretirme siempre contigo, así que cuidado.`
+},
+
+6:{
+titulo:"⭐ Algo que me gustaría",
+texto:`Me gustaría mucho disfrutar días contigo y tener recuerdos juntas (físicamente).
+
+Pero más allá de eso, que el cariño que nos tenemos, se mantenga, por ahí se tenga que transformar, pero que siempre quede como algo lindo.`
+},
+
+7:{
+titulo:"✨ Emilia ✨",
+texto:`La estrella más importante que hay, Emilia.
+
+Muy cursi decir esto jajaja, pero si miro al cielo, podré mirarla siempre.
+
+Leí por ahí, que una constelación es el conjunto de estrellas que por cosas de la vida, el universo, Dios o lo que sea, terminaron ahí. Alguien las vio y decidió juntarlas y juntarlas para tener algo más grande, una constelación.
+
+Bueno, tú y yo somos algo parecido.
+
+No existe una estrella como esta y no va a existir.
+
+Y la constelación empieza y termina en esta, en Emilia.`
+}
+
+};
+
+function abrir(id){
+    document.getElementById("titulo").innerHTML=estrellas[id].titulo;
+    document.getElementById("texto").innerText=estrellas[id].texto;
+    document.getElementById("modal").style.display="block";
+}
+
+function cerrar(){
+    document.getElementById("modal").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
