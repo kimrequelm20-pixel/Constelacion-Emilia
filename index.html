@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -8,66 +9,61 @@
 <style>
 body{
     margin:0;
+    font-family:Arial, sans-serif;
+    background: radial-gradient(circle at center,#1c2550 0%,#0a1026 50%,#000 100%);
     overflow:hidden;
-    font-family: 'Trebuchet MS', sans-serif;
-    background: radial-gradient(circle at center, #1b2340 0%, #070b18 60%, #000000 100%);
     color:white;
 }
 
 h1{
     text-align:center;
-    margin-top:30px;
+    margin-top:25px;
     margin-bottom:10px;
-    font-size:2.3rem;
 }
 
 .subtitulo{
     text-align:center;
     max-width:700px;
     margin:auto;
-    opacity:0.85;
+    opacity:.85;
     padding:0 20px;
 }
 
 .estrellas{
     position:relative;
     width:100vw;
-    height:75vh;
+    height:80vh;
 }
 
 .star{
     position:absolute;
-    width:16px;
-    height:16px;
-    background:white;
+    width:18px;
+    height:18px;
     border-radius:50%;
-    box-shadow:0 0 12px white;
+    background:white;
+    box-shadow:0 0 15px white;
     cursor:pointer;
-    animation:brillar 2s infinite alternate;
+    animation:parpadeo 2s infinite alternate;
 }
 
 .star:hover{
-    transform:scale(1.4);
+    transform:scale(1.3);
 }
 
 .emilia{
-    width:26px;
-    height:26px;
+    width:28px;
+    height:28px;
     box-shadow:0 0 35px white;
 }
 
-@keyframes brillar{
-    from{
-        opacity:0.5;
-    }
-    to{
-        opacity:1;
-    }
+@keyframes parpadeo{
+    from{opacity:.5;}
+    to{opacity:1;}
 }
 
 .linea{
     position:absolute;
-    background:rgba(255,255,255,0.3);
+    background:rgba(255,255,255,.35);
     height:2px;
     transform-origin:left center;
 }
@@ -75,87 +71,83 @@ h1{
 .modal{
     display:none;
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.75);
+    inset:0;
+    background:rgba(0,0,0,.8);
 }
 
 .modal-content{
-    background:#111b35;
+    background:#111a38;
     width:85%;
-    max-width:600px;
+    max-width:650px;
     margin:10vh auto;
     padding:25px;
-    border-radius:18px;
-    text-align:left;
+    border-radius:15px;
 }
 
-.modal h2{
-    margin-top:0;
-}
-
-.cerrar{
-    margin-top:20px;
-    padding:10px 18px;
+button{
+    margin-top:15px;
+    padding:10px 15px;
     border:none;
     border-radius:8px;
     cursor:pointer;
 }
 </style>
+
 </head>
 
 <body>
 
-<h1>✨ Constelación Emilia ✨</h1>
+<h1>✨ Constelación Close ✨</h1>
 
 <p class="subtitulo">
-Encontré una constelación nueva.
-No aparece en ningún mapa.
+Encontré una constelación nueva. No aparece en ningún mapa.
 Si alguna vez mirás al cielo, quizá la encuentres.
 </p>
 
 <div class="estrellas">
 
-    <!-- Líneas -->
+<!-- Líneas -->
 
-    <div class="linea" style="top:60%; left:15%; width:13%; transform:rotate(-28deg);"></div>
-    <div class="linea" style="top:46%; left:25%; width:15%; transform:rotate(24deg);"></div>
-    <div class="linea" style="top:56%; left:38%; width:15%; transform:rotate(-25deg);"></div>
-    <div class="linea" style="top:41%; left:50%; width:15%; transform:rotate(25deg);"></div>
-    <div class="linea" style="top:51%; left:62%; width:15%; transform:rotate(-28deg);"></div>
+<div class="linea" style="top:64%; left:49.5%; width:10%; transform:rotate(-90deg);"></div>
 
-    <!-- Estrellas -->
+<div class="linea" style="top:55%; left:32%; width:20%; transform:rotate(25deg);"></div>
 
-    <div class="star" style="left:15%; top:60%;" onclick="abrir(1)"></div>
+<div class="linea" style="top:55%; left:50%; width:20%; transform:rotate(-25deg);"></div>
 
-    <div class="star" style="left:25%; top:45%;" onclick="abrir(2)"></div>
+<div class="linea" style="top:30%; left:32%; width:20%; transform:rotate(-25deg);"></div>
 
-    <div class="star" style="left:38%; top:55%;" onclick="abrir(3)"></div>
+<div class="linea" style="top:30%; left:50%; width:20%; transform:rotate(25deg);"></div>
 
-    <div class="star" style="left:50%; top:40%;" onclick="abrir(4)"></div>
+<div class="linea" style="top:18%; left:50%; width:12%; transform:rotate(90deg);"></div>
 
-    <div class="star" style="left:62%; top:50%;" onclick="abrir(5)"></div>
+<!-- Estrellas -->
 
-    <div class="star" style="left:75%; top:35%;" onclick="abrir(6)"></div>
+<div class="star" style="left:49%; top:72%;" onclick="abrir(1)"></div>
 
-    <div class="star emilia" style="left:52%; top:18%;" onclick="abrir(7)"></div>
+<div class="star" style="left:30%; top:55%;" onclick="abrir(2)"></div>
+
+<div class="star" style="left:68%; top:55%;" onclick="abrir(3)"></div>
+
+<div class="star" style="left:49%; top:45%;" onclick="abrir(4)"></div>
+
+<div class="star" style="left:30%; top:30%;" onclick="abrir(5)"></div>
+
+<div class="star" style="left:68%; top:30%;" onclick="abrir(6)"></div>
+
+<div class="star emilia" style="left:48.5%; top:12%;" onclick="abrir(7)"></div>
 
 </div>
 
 <div id="modal" class="modal">
-    <div class="modal-content">
+<div class="modal-content">
 
-        <h2 id="titulo"></h2>
+<h2 id="titulo"></h2>
 
-        <p id="texto"></p>
+<p id="texto"></p>
 
-        <button class="cerrar" onclick="cerrar()">
-            Cerrar
-        </button>
+<button onclick="cerrar()">Cerrar</button>
 
-    </div>
+</div>
 </div>
 
 <script>
@@ -199,9 +191,7 @@ Y no me gusta que no puedas ver lo linda que eres, podría derretirme siempre co
 
 6:{
 titulo:"⭐ Algo que me gustaría",
-texto:`Me gustaría mucho disfrutar días contigo y tener recuerdos juntas (físicamente).
-
-Pero más allá de eso, que el cariño que nos tenemos, se mantenga, por ahí se tenga que transformar, pero que siempre quede como algo lindo.`
+texto:`Me gustaría mucho disfrutar días contigo y tener recuerdos juntas (físicamente). Pero más allá de eso, que el cariño que nos tenemos, se mantenga, por ahí se tenga que transformar, pero que siempre quede como algo lindo.`
 },
 
 7:{
@@ -222,13 +212,13 @@ Y la constelación empieza y termina en esta, en Emilia.`
 };
 
 function abrir(id){
-    document.getElementById("titulo").innerHTML=estrellas[id].titulo;
-    document.getElementById("texto").innerText=estrellas[id].texto;
-    document.getElementById("modal").style.display="block";
+document.getElementById("titulo").innerHTML = estrellas[id].titulo;
+document.getElementById("texto").innerText = estrellas[id].texto;
+document.getElementById("modal").style.display = "block";
 }
 
 function cerrar(){
-    document.getElementById("modal").style.display="none";
+document.getElementById("modal").style.display = "none";
 }
 
 </script>
